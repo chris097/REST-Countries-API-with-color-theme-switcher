@@ -1,0 +1,21 @@
+.search{
+    padding-top: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search .search-input > input{
+    width: 300px;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.search .option > select{
+    width: 150px;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
