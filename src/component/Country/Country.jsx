@@ -8,9 +8,13 @@ const Country = () => {
 
     useEffect(() => {
         axios.get("https://restcountries.eu/rest/v2/all")
-        .then(res => console.log(res.data.name))
+        .then(res => 
+            (
+                // console.log(res.data)
+                setCountry(res.data)
+            ))
 
-    })
+    }, [])
     return(
         <div className="container">
             <div className="search">
@@ -25,42 +29,28 @@ const Country = () => {
             </div>
             <div className="cards-container">
                 <div className="cards-content">
-                    <div className="cards">
-                        <img src={mapp} alt=""/>
+                    
+                        {/* <img src={mapp} alt=""/>
                         <div className="country-id">
                         <h4>Nigeria</h4>
                         <h4>Population: <span>490,0494</span></h4>
                         <h4>Region: <span>Africa</span></h4>
                         <h4>Capital: <span>Abuja</span></h4>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <img src={mapp} alt=""/>
+                        </div> */}
+                    {country.map(name => (
+                        <>
+                        <div className="cards">
+                        <img src={name.flag} alt=""/>
                         <div className="country-id">
-                        <h4>Nigeria</h4>
-                        <h4>Population: <span>490,0494</span></h4>
-                        <h4>Region: <span>Africa</span></h4>
-                        <h4>Capital: <span>Abuja</span></h4>
+                        <h4>{name.name}</h4>
+                        <h4>Population: <span>{name.population}</span></h4>
+                        <h4>Region: <span>{name.region}</span></h4>
+                        <h4>Capital: <span>{name.capital}</span></h4>
+                        </div> 
                         </div>
-                    </div>
-                    <div className="cards">
-                        <img src={mapp} alt=""/>
-                        <div className="country-id">
-                        <h4>Nigeria</h4>
-                        <h4>Population: <span>490,0494</span></h4>
-                        <h4>Region: <span>Africa</span></h4>
-                        <h4>Capital: <span>Abuja</span></h4>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <img src={mapp} alt=""/>
-                        <div className="country-id">
-                        <h4>Nigeria</h4>
-                        <h4>Population: <span>490,0494</span></h4>
-                        <h4>Region: <span>Africa</span></h4>
-                        <h4>Capital: <span>Abuja</span></h4>
-                        </div>
-                    </div>
+                        </>
+                    ))}
+                    
                 </div>
             </div>
             <div className="country-btn">
