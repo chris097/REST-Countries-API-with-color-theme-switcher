@@ -1,20 +1,7 @@
-import React, { useState, useEffect} from "react";
-import axios from "axios";
+import React from "react";
 import "./Country.css";
-import mapp from "./img/hacker3.jpg";
 
-const Country = () => {
-    const [ country, setCountry ] = useState([])
-
-    useEffect(() => {
-        axios.get("https://restcountries.eu/rest/v2/all")
-        .then(res => 
-            (
-                // console.log(res.data)
-                setCountry(res.data)
-            ))
-
-    }, [])
+const Country = ({country}) => {
     return(
         <div className="container">
             <div className="search">
@@ -29,17 +16,9 @@ const Country = () => {
             </div>
             <div className="cards-container">
                 <div className="cards-content">
-                    
-                        {/* <img src={mapp} alt=""/>
-                        <div className="country-id">
-                        <h4>Nigeria</h4>
-                        <h4>Population: <span>490,0494</span></h4>
-                        <h4>Region: <span>Africa</span></h4>
-                        <h4>Capital: <span>Abuja</span></h4>
-                        </div> */}
                     {country.map(name => (
                         <>
-                        <div className="cards">
+                        <div className="cards" key={name}>
                         <img src={name.flag} alt=""/>
                         <div className="country-id">
                         <h4>{name.name}</h4>
