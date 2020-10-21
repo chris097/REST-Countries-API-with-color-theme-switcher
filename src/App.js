@@ -5,6 +5,10 @@ import axios from "axios";
 import "./component/Utilities.css"
 import Country from "./component/Country/Country";
 
+const initialState = ({
+    
+})
+
 const App = () =>{
     const [ country, setCountry ] = useState([])
 
